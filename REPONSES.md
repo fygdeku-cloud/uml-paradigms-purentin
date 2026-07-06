@@ -14,8 +14,6 @@
 7. Difference:
 * Une relation **include** entre une classe A et une classe B, signifie que pendant l'execution de A, B s'execute egalement; Exemple: La relation entre les cas << Emprunter un livre >> et << Valider un emprunt >> est *Include*,
 * Une relation **extend** entre une classe A et une classe B, signifie que pendant l'execution de A, B peut egalement s'execute ; Exemple: La relation entre les cas << Emprunter un livre >> et << Suspendre un membre >> est *extend*.
-8. Un **Diagramme d'etat-transition** sert a modeliser les differents etats d'un seul objet. Il resoud le probleme de savoir a quel moment un objet quitte d'un etat a un autre.
-9. La **Multiplicité** dans un diagramme de classe represente le nombre de fois qu'une instance d'une classe peut participer a une relation avec une autre classe. Celle entre *Menbre* et *Loan* est de 3, car une membre peut contracter au plus 3 emprunts simultannées.
 10. L'**approche orientee object** permet de representée de façons visuel un systeme dans sa globalitée en ce basant sur le concept d'objet, alors que l'**approche procedural** se concentre plutôt sur les fonctions du systemes.
 # Partie 2
 1. 
