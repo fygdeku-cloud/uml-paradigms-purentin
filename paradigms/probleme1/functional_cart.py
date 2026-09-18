@@ -16,3 +16,5 @@ def calculate_cart_total(cart):
             apply_discount(product, 0.1)
         total = sum(get_total(product) for product in cart)
     return total
+
+
