@@ -1,0 +1,195 @@
+I.1 Contexte
+
+Bafoussam, chef-lieu de la région de l’Ouest du Cameroun, est une ville très active sur le plan économique et social. Les événements y sont nombreux : mariages, cérémonies traditionnelles, funérailles, baptêmes, anniversaires, séminaires, fêtes d’entreprise et événements associatifs. Chacun nécessite du matériel en grande quantité : bâches, chaises, tables, vaisselle, sonorisation, éclairage, décoration.
+
+Aujourd’hui, la location de ce matériel se fait de façon traditionnelle : appels téléphoniques, déplacements physiques chez le loueur, carnets papier ou tableurs, paiements en espèces sans reçu systématique. Cette organisation entraîne des doubles réservations, des erreurs de stock, des litiges sur le matériel cassé ou manquant, des retards de livraison et un manque de traçabilité.
+
+I.2 Description de l’existant
+Pratiques actuelles à Bafoussam
+
+La plupart des loueurs fonctionnent encore de manière artisanale : prise de commande par téléphone ou par messagerie, inventaire sur cahier ou sur tableur, paiement en espèces ou par mobile money sans suivi centralisé, livraison organisée au jour le jour. Aucune plateforme locale dédiée à la location de matériel événementiel n’a été identifiée à ce jour.
+
+Applications en ligne disponibles dans le domaine
+
+Il existe des logiciels internationaux de gestion de location de matériel événementiel :
+
+Goodshuffle Pro : plateforme qui regroupe le suivi d’inventaire, les devis en ligne, les contrats, les paiements et la planification d’équipe. Son tarif démarre à 99 $ par mois, facturés à l’année. 
+spotsaas
+spotsaas
+Rentman : plateforme de gestion de location conçue pour les entreprises de l’audiovisuel et de la production d’événements. Son tarif démarre à 19 $ par utilisateur et par mois. 
+softwareadvice
+spotsaas
+Booqable : logiciel de location dans le cloud, avec un créateur de site web, des fonctions de gestion de location et une application mobile. 
+softwareadvice
+Event Rental Systems : plateforme qui propose la réservation en ligne et le routage automatisé des livraisons. 
+capterra
+TapGoods, InflatableOffice, Reservety, Point of Rental : autres solutions du même type, destinées surtout aux loueurs de fêtes et d’événements.
+Limites des solutions existantes
+Coût en devises : la plupart des alternatives démarrent entre 39 et 79 $ par mois, soit un abonnement récurrent en dollars, lourd pour un petit loueur camerounais. 
+reservety
+Paiement non adapté : ces outils reposent surtout sur le paiement par carte bancaire. L’intégration du mobile money (MTN MoMo, Orange Money), moyen de paiement dominant au Cameroun, n’y est généralement pas prévue.
+Langue et contexte : interfaces souvent en anglais et conçues pour les marchés américain ou européen (devise, fiscalité, formats d’adresse et de téléphone).
+Connexion internet : elles supposent une connexion stable et rapide, ce qui n’est pas toujours le cas.
+Fonctionnalités surdimensionnées : leur complexité (gestion d’équipes, contrats électroniques, force de vente) dépasse les besoins d’un loueur local.
+Pas de réalités locales : elles ne tiennent pas compte des habitudes d’un marché où une grande partie des commandes se font par téléphone et où la confiance et les cautions jouent un rôle central.
+Dépendance : les données sont hébergées chez un éditeur étranger, avec peu de personnalisation possible.
+Présentation brève de notre solution : EventLoc
+
+EventLoc est une application web adaptative, pensée pour les loueurs de matériel événementiel de Bafoussam. Elle regroupe en un seul outil :
+
+un catalogue en ligne consultable par les clients ;
+un système de réservation avec vérification de la disponibilité ;
+un suivi du stock en temps réel ;
+un paiement compatible avec le mobile money ;
+une planification des livraisons et des retours ;
+une gestion des incidents et une facturation automatique ;
+des notifications aux clients et au personnel.
+
+Elle est en français, légère, facturée en FCFA et adaptée aux habitudes locales. Elle sert cinq profils : visiteur, client, manager, livreur et magasinier.
+
+I.3 Objectifs du projet
+
+Objectif général : digitaliser et fiabiliser la gestion de la location de matériel événementiel à Bafoussam.
+
+Objectifs spécifiques :
+
+Permettre aux clients de consulter le catalogue, de réserver, de payer et de suivre leur livraison à distance.
+Éviter les doubles réservations grâce à une gestion du stock en temps réel.
+Planifier et suivre les livraisons et les récupérations du matériel.
+Tracer les incidents (matériel endommagé ou manquant, retards) et en tenir compte dans la facturation.
+Automatiser l’établissement des factures et l’enregistrement des paiements, y compris par mobile money.
+Informer les clients et le personnel par notifications aux étapes clés.
+Donner au manager une vue d’ensemble de l’activité grâce à l’historique des réservations et des locations.
+I.4 Problématique
+
+Comment permettre à une entreprise de location de matériel événementiel de Bafoussam de gérer ses réservations, son stock, ses livraisons et ses paiements de manière fiable et traçable, tout en offrant aux clients une expérience simple, adaptée aux réalités locales (connexion variable, paiement par mobile money, usage massif du smartphone) ?
+
+Cette question se décline en plusieurs difficultés :
+
+Comment garantir qu’un matériel n’est jamais loué deux fois sur la même période ?
+Comment suivre l’état du matériel à chaque sortie et à chaque retour ?
+Comment coordonner efficacement les livraisons et les récupérations ?
+Comment gérer équitablement les cas de casse, de perte ou de retard ?
+I.5 Cible
+
+Utilisateurs de l’application :
+
+Visiteurs : personnes qui découvrent le catalogue et peuvent s’inscrire.
+Clients : particuliers (familles organisant mariages, deuils, baptêmes), entreprises, associations, églises, établissements scolaires, organisateurs d’événements.
+Manager : responsable de l’activité de location, qui valide, planifie et facture.
+Livreurs : personnel chargé de la livraison et de la récupération du matériel.
+Magasinier : responsable du stock et de l’état du matériel.
+
+Systèmes externes : un système de paiement (mobile money, comme MTN MoMo et Orange Money, ou autre) et un système de notification (SMS, e-mail, notification push).
+
+Zone géographique : la ville de Bafoussam et ses environs immédiats.
+
+II.1 Besoins fonctionnels
+
+Pour le visiteur
+
+Consulter le catalogue des matériaux disponibles.
+S’inscrire.
+
+Pour le client
+
+S’authentifier.
+Consulter le catalogue par catégorie, avec photos, prix et disponibilité.
+Réserver des matériaux en précisant les dates, le lieu et le type d’événement.
+Modifier, éditer ou annuler sa réservation, et y faire un ajout.
+Payer sa réservation (acompte, solde, caution).
+Suivre sa livraison.
+Consulter l’historique de ses réservations et locations.
+Signaler un incident.
+
+Pour le manager
+
+Traiter la réservation (valider ou refuser).
+Planifier les dates de location et les délais.
+Consulter le planning de livraison, modifier le délai de livraison, annuler une livraison, valider ou revoir une livraison.
+Enregistrer les informations des paiements reçus.
+Établir la facture.
+Suivre le retour du matériel.
+Signaler un client.
+Consulter l’historique des réservations.
+Gérer les stocks.
+
+Pour le livreur
+
+Consulter son planning.
+Livrer et récupérer le matériel.
+Valider la livraison.
+Signaler un incident.
+
+Pour le magasinier
+
+Consulter le stock.
+Enregistrer l’entrée et la sortie des matériaux.
+Ajouter des matériaux au stock et modifier les quantités.
+Signaler les matériaux endommagés ou manquants.
+Mettre à jour le stock des matériaux.
+
+Pour les systèmes externes
+
+Effectuer le paiement en ligne.
+Envoyer une notification (confirmation de réservation, livraison en cours, rappel de retour, incident, facture disponible).
+II.2 Besoins non-fonctionnels
+Ergonomie : interface simple, en français, utilisable sans formation, y compris par des personnes peu habituées au numérique.
+Compatibilité : application web adaptative (responsive) accessible depuis un smartphone, une tablette ou un ordinateur.
+Performance : temps de chargement réduit et pages légères, pour fonctionner avec une connexion internet limitée ou instable.
+Disponibilité : accès continu, avec une gestion correcte des coupures.
+Sécurité :
+authentification avec mots de passe hachés ;
+gestion des rôles et des droits d’accès ;
+protection des données personnelles et des transactions ;
+sauvegardes régulières.
+Fiabilité des données : cohérence du stock et des réservations (aucune double réservation) et historisation des opérations sensibles (mouvements de stock, paiements, incidents).
+Maintenabilité et évolutivité : code structuré et documenté, pour ajouter facilement de nouveaux matériaux, services ou fonctionnalités.
+Traçabilité : chaque action importante est horodatée et rattachée à son auteur.
+Adaptation locale : montants en FCFA, formats de date et de téléphone camerounais, paiement mobile money.
+II.3 Limitations fonctionnelles
+
+La première version d’EventLoc ne prévoit pas :
+
+la gestion de la comptabilité générale ni de la paie du personnel ;
+la gestion des fournisseurs et des achats de matériel (seule l’entrée en stock est enregistrée) ;
+la gestion de l’entretien et de la maintenance détaillée du matériel ;
+l’optimisation automatique des itinéraires de livraison ni le suivi GPS en temps réel ;
+la prestation de services événementiels (traiteur, animation, décoration clé en main) : seule la location de matériel est couverte ;
+une application mobile native (la version web adaptative suffit en première phase) ;
+le fonctionnement hors ligne complet ;
+la couverture géographique en dehors de Bafoussam et de ses environs ;
+l’assurance du matériel loué, dont la gestion reste contractuelle et manuelle.
+III.1 Coûts
+
+III.2 Délais
+
+
+III.3 Périmètre du projet
+
+Inclus :
+
+La gestion des utilisateurs et de leurs rôles (visiteur, client, manager, livreur, magasinier).
+Le catalogue des matériaux, organisé par catégories.
+La gestion du stock et de ses mouvements.
+Le cycle complet de la réservation : création, modification, annulation, validation.
+La planification et le suivi des livraisons et des retours.
+Le paiement et la facturation.
+La gestion des incidents (matériel endommagé ou manquant, retards).
+Les notifications.
+L’historique et la consultation des données.
+
+Exclu : les éléments listés dans les limitations fonctionnelles.
+
+
+III.4 Livrables attendus
+Le cahier des charges validé.
+Les diagrammes de conception : cas d’utilisation, classes, et éventuellement séquence et base de données.
+Les maquettes de l’interface.
+L’application EventLoc fonctionnelle, déployée.
+Le code source commenté.
+La base de données, avec son script de création et des données d’exemple.
+Le jeu de tests et son rapport.
+La documentation technique (installation, architecture).
+Le manuel d’utilisation par profil (client, manager, livreur, magasinier).
+Une session de formation du personnel.

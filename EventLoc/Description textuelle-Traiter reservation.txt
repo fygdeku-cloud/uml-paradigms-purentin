@@ -1,0 +1,102 @@
+Description textuelle du cas d’utilisation « Traiter la réservation »
+1. Fiche d’identification
+Élément	Contenu
+Nom	Traiter la réservation
+Acteur principal	Manager
+Acteurs secondaires	Système de Notification, Système de Paiement (indirectement, pour la vérification de l’acompte)
+Objectif	Examiner une réservation soumise par un client, la valider ou la refuser, et déclencher la suite du processus (planification de la location, livraison, facturation)
+Déclencheur	Un client soumet une réservation, qui passe au statut « en attente »
+Fréquence	À chaque nouvelle réservation, soit plusieurs fois par jour
+2. Préconditions
+Le manager est authentifié (cas d’utilisation inclus : S’authentifier).
+Une réservation existe avec le statut « en attente ».
+Le catalogue et le stock sont à jour.
+3. Postconditions
+
+En cas de succès (validation)
+
+La réservation passe au statut « confirmée ».
+Le stock disponible est mis à jour : les quantités concernées sont marquées comme réservées sur la période.
+Le client est notifié de la confirmation.
+La réservation est prête pour la planification des dates et de la livraison.
+
+En cas de refus
+
+La réservation passe au statut « refusée » ou « annulée », avec un motif enregistré.
+Les quantités éventuellement bloquées sont libérées.
+Le client est notifié du refus et de son motif.
+4. Scénario nominal (validation)
+Le manager accède à la liste des réservations en attente.
+Le système affiche les réservations classées par date de soumission, avec le nom du client, les dates de location, le lieu et le montant total.
+Le manager sélectionne une réservation.
+Le système affiche le détail complet : matériels demandés et quantités, période de location, date et lieu de l’événement, mode de réception (livraison ou retrait), montant total, caution, et historique du client (réservations passées, éventuel signalement).
+Le système vérifie automatiquement la disponibilité de chaque matériel sur la période demandée (cas inclus : Gérer les stocks).
+Le système confirme que tous les matériels sont disponibles dans les quantités demandées.
+Le manager contrôle les informations (cohérence des dates, adresse, montant, profil du client).
+Le manager valide la réservation.
+Le système change le statut en « confirmée » et réserve les quantités dans le stock.
+Le système calcule et affiche le montant de l’acompte à verser, ou enregistre celui déjà payé.
+Le système envoie une notification au client (cas inclus : Envoi d’une notification), avec le récapitulatif et les modalités de paiement.
+Le cas d’utilisation se termine. Le manager peut enchaîner avec Planifier les dates de location/délais et Établir la facture.
+5. Scénarios alternatifs
+
+A1. Matériel partiellement indisponible (à l’étape 6)
+
+6a. Le système signale les matériels ou quantités manquants sur la période.
+6b. Le manager choisit une option :
+proposer un matériel de remplacement équivalent ;
+réduire les quantités ;
+proposer de décaler les dates ;
+refuser la réservation (voir A3).
+6c. Le système met à jour la réservation et prévient le client de la modification proposée.
+6d. Le client accepte ou refuse. S’il accepte, le scénario reprend à l’étape 7. Sinon, voir A3.
+
+A2. Modification demandée par le manager (à l’étape 7)
+
+7a. Le manager corrige un élément (adresse, date de livraison, frais de livraison, remise).
+7b. Le système recalcule le montant total.
+7c. Le scénario reprend à l’étape 8.
+
+A3. Refus de la réservation (à l’étape 8)
+
+8a. Le manager choisit « Refuser ».
+8b. Le système demande un motif (indisponibilité, période non couverte, client signalé, informations incomplètes).
+8c. Le manager saisit le motif et confirme.
+8d. Le système passe le statut à « refusée », libère les quantités bloquées et notifie le client.
+8e. Le cas d’utilisation se termine.
+
+A4. Client signalé (à l’étape 4)
+
+4a. Le système affiche un avertissement : le client a un signalement actif (retards, matériel abîmé, impayés).
+4b. Le manager peut exiger une caution plus élevée, un paiement intégral à l’avance, ou refuser.
+4c. Le scénario reprend à l’étape 7 ou passe à A3.
+
+A5. Acompte requis avant confirmation (à l’étape 9)
+
+9a. Si la règle de l’entreprise impose un acompte avant validation définitive, la réservation reste « en attente de paiement ».
+9b. Le client effectue le paiement (cas : Payer réservation, via le Système de Paiement).
+9c. Le manager enregistre ou le système confirme la réception (cas : Enregistrer les infos des paiements reçus).
+9d. Le système passe alors la réservation à « confirmée ».
+6. Scénarios d’exception
+E1. Conflit de réservation simultanée : une autre réservation a pris le dernier exemplaire entre-temps. Le système bloque la validation et ramène le manager à A1.
+E2. Échec d’envoi de la notification : le système enregistre l’échec, réessaie automatiquement et propose au manager de contacter le client par téléphone.
+E3. Perte de connexion ou erreur système : aucune modification n’est enregistrée. La réservation reste « en attente » et le manager peut recommencer.
+E4. Session expirée : le système demande une nouvelle authentification, puis reprend là où le manager s’était arrêté.
+
+
+
+Manager → Système : Ouvrir les réservations en attente
+Système → Manager : Liste des réservations
+Manager → Système : Sélectionner une réservation
+Système → StockMateriel : Vérifier la disponibilité
+StockMateriel → Système : Disponible / Indisponible
+Système → Manager : Détail et résultat de la vérification
+Manager → Système : Valider (ou Refuser avec motif)
+Système → Reservation : Changer le statut
+Système → StockMateriel : Réserver les quantités (ou libérer)
+Système → Notification : Informer le client
+Notification → Client : Message de confirmation (ou de refus)
+
+
+
+
